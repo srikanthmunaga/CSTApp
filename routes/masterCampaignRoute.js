@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 router.get('/mastercampaign', masterCampaign.list);
 router.get('/subcampaign', masterCampaign.subcampaign1);
 router.get('/savedraft', masterCampaign.saveDraft);
+router.get('/program',masterCampaign.getPrograme);
 
 router.get('/getprogramtypes:id', function (req, res) {
     var bbb = require('../models/businessgroupnameinsertion');
@@ -59,6 +60,12 @@ router.get('/saveDrafrhandler:id', function (req, res) {
     //masterCampaign.bhbhbnames1(req,res,campaignID,startDate,endDate)
     masterCampaign.bhbhbnames1(req,res,campaignID)
 });
+
+router.get('/subcampaignhandler:id',function(req,res){
+    var programId = req.params.id.split(',');
+    console.log('Program id is ' + programId);
+    masterCampaign.getProgramelist(req,res,programId);
+})
 
 
 
