@@ -106,7 +106,24 @@ router.post('/campaignregistration', function (req, res) {
     var mastercampaignid = 1;
     var status = 1;
     var isactive = 1;
-    var mcadigitalid = 'ari123';
+    //var mcadigitalid = 'ari123';
+    var  uniqueNumber = 0;
+
+    var date = Date.now();
+    
+    if (date <= uniqueNumber) {
+        date = ++uniqueNumber;
+    } else {
+        uniqueNumber = date;
+    }
+
+    console.log('unique number is'+date)
+    var uniqueID =date;
+    var mcadigitalid ='M'+ uniqueID.toString().slice(-5);
+    console.log('mca digital ID is' + mcadigitalid);
+
+    //var lastFiveChars = date.substr(-5);
+    //console.log(lastFive);
     var day = dateformat(startdate, "yy")
     console.log("date is" + day);
     var namingConvention = day + campaignName;
@@ -249,7 +266,22 @@ router.post('/subcampaignregistration', function (req, res) {
     // var mastercampaignid = 1;
     var status = 1;
     var isactive = 1;
-    var programdigitalid = 'pri123';
+    //var programdigitalid = 'pri123';
+    var  uniqueNumber1 = 0;
+
+    var date1 = Date.now();
+    
+    if (date1 <= uniqueNumber1) {
+        date1 = ++uniqueNumber1;
+    } else {
+        uniqueNumber1 = date1;
+    }
+
+    console.log('unique number is'+date1)
+    var uniqueID1 =date1;
+    var programdigitalid ='P'+ uniqueID1.toString().slice(-5);
+    console.log('mca digital ID is' + programdigitalid);
+
     var day = dateformat(startdate, "yy")
     console.log("date is" + day);
     var namingConvention = day + mastercampaignID;

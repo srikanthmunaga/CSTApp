@@ -221,6 +221,7 @@ module.exports.createbb = function (newBuss, res, callback) {
   var PName = "" + PFamilyName + "";
   console.log('program family name is' + PName);
   console.log("sdfsafsafsadf" + newBuss.startdate);
+  console.log("sdfsafsafsadf" + newBuss.mcadigitalid);
 
   var mastercampaignId;
   mastercampaign.create({
