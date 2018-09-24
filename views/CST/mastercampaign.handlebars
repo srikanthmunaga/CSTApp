@@ -13,9 +13,43 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="/css/style4.css"> {{!--
     <link rel="stylesheet" type="text/css" href="/css/my-login.css"> --}}
-</head>
+    <style>
+        #globalLoader {
+        position: absolute;
+        top: 0px !important;
+        left: 0px !important;
+        width: 100% !important;
+        height: 180% !important;
+        z-index: 1000;
+        background-color: grey;
+        opacity: .8;
+        overflow: hidden !important;
+    }
 
-<body class="my-registration-page">
+    .loader {
+        border: 16px solid #f3f3f3;
+        top: 250px;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        overflow: hidden !important;
+    }
+.OnLoaderscroll {
+        overflow-y: hidden !important;
+        overflow: hidden !important;
+    }
+
+    .disable-scroll {
+        overflow: hidden !important;
+    }
+    </style>
+</head>
+{{> common}}
+
+{{!-- <body class="my-registration-page">
 
     <div class="wrapper">
         <!-- Sidebar Holder -->
@@ -102,7 +136,7 @@
         <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
             <i class="glyphicon glyphicon-align-left"></i>
             <span></span>
-        </button>
+        </button> --}}
         <!-- Page Content Holder -->
         <section class="h-100">
 
@@ -122,6 +156,7 @@
 
 
                                         <form method="post" id='mass' action="/cst/campaignregistration">
+                                        
                                             <div class="form-group required-field">
                                                 <label for="CN">Campaign Name</label>
                                                 <input id="campname" type="text" class="form-control" name="CampaignName" required autofocus>
@@ -206,9 +241,14 @@
                                                 <label for="ED">End date</label>
                                                 <input id="endate" type="date" class="form-control" name="enddate" value="" required autofocus>
                                             </div>
-                                            <button type="submit" id='validateit' class="btn btn-primary btn-block">Save Draft</button>
+                                            {{!-- <button type="submit" id='validateit' class="btn btn-primary btn-block">Save Draft</button>
                                             <span></span>
-                                            <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/cst/savedraft'">Submit</button>
+                                            <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/cst/savedraft'">Submit</button> --}}
+
+                                             <div class="panel-footer">
+                                                <button id="btnSubmit" id='validateit' type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="button" class="btn btn-default" id="btntacticDraft">Save Draft</button>
+                                            </div>
                                         </form>
                                     </div>
 
